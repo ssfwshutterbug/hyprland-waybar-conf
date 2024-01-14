@@ -3,7 +3,7 @@
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: CaskaydiaCove Nerd Font,FontAwesome;
-    font-size: 12px;
+    font-size: 22px;
     min-height: 20px;
 }
 
@@ -16,184 +16,47 @@ window#waybar.hidden {
 }
 
 #workspaces {
-    margin-right: 5px;
-    border-radius: 10px;
+	padding: 10px 5px 10px 5px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    background: #5c719c
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #workspaces button {
-    transition: none;
-    color: #000000;
-    background: transparent;
-    padding: 5px;
-    font-size: 12px;
+    color:      rgba(217, 216, 216, 0.4);
 }
 
-#workspaces button.persistent {
-    color: #7c818c;
-    font-size: 12px;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-radius: inherit;
-    color: #383c4a;
-    background: #CCFF66;
-}
-
-#workspaces button.active {
-	color: #FFCC33;
-}
-#workspaces button.focused {
-    color: white;
-}
-
-#window {
-    margin-left: 8px;
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #81A1C1;
-}
-
-#keyboard-state {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #000000;
-    background: #383c4a;
+#workspaces button.visible {
+    color:      rgba(217, 216, 216, 1);
+    border-right: 3px solid #572d9b;
 }
 
 #clock {
-    padding-left: 16px;
-    padding-right: 16px;
+	padding: 10px 5px 10px 5px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #000000;
-    background: #383c4a;
-    background: linear-gradient(118deg, rgba(205,214,244,1) 5%, rgba(138,177,242,1) 5%, rgba(138,177,242,1) 20%, rgba(205,214,244,1) 20%, rgba(205,214,244,1) 40%, rgba(138,177,242,1) 40%, rgba(138,177,242,1) 60%, rgba(205,214,244,1) 60%, rgba(205,214,244,1) 80%, rgba(138,177,242,1) 80%, rgba(138,177,242,1) 95%, rgba(205,214,244,1) 95%);
-    /*background: linear-gradient(118deg, rgba(137,180,250,120) 0%, rgba(142,179,250,120) 6%, rgba(148,226,213,1) 14%, rgba(147,178,250,1) 14%, rgba(155,176,249,1) 18%, rgba(245,194,231,1) 28%, rgba(158,175,249,1) 28%, rgba(181,170,248,1) 58%, rgba(205,214,244,1) 69%, rgba(186,169,248,1) 69%, rgba(195,167,247,1) 72%, rgba(137,220,235,1) 73%, rgba(198,167,247,1) 78%, rgba(203,166,247,1) 100%);
-     */
-}
-
-#custom-weather {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px 10px 10px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #669999;
-    /*background: linear-gradient(118deg, rgba(137,180,250,120) 0%, rgba(142,179,250,120) 6%, rgba(148,226,213,1) 14%, rgba(147,178,250,1) 14%, rgba(155,176,249,1) 18%, rgba(245,194,231,1) 28%, rgba(158,175,249,1) 28%, rgba(181,170,248,1) 58%, rgba(205,214,244,1) 69%, rgba(186,169,248,1) 69%, rgba(195,167,247,1) 72%, rgba(137,220,235,1) 73%, rgba(198,167,247,1) 78%, rgba(203,166,247,1) 100%);
-     */
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #custom-volume {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
+	padding: 10px 5px 10px 5px;
     border-radius: 10px;
+	margin-bottom: 10px;
     transition: none;
-    color: #ffffff;
+    color: #cccccc;
     background: #9a9c89;
-}
-
-#network {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #B28DAC;
-    /*background: linear-gradient(118deg, rgba(205,214,244,1) 5%, rgba(243,139,168,1) 5%, rgba(243,139,168,1) 20%, rgba(205,214,244,1) 20%, rgba(205,214,244,1) 40%, rgba(243,139,168,1) 40%, rgba(243,139,168,1) 60%, rgba(205,214,244,1) 60%, rgba(205,214,244,1) 80%, rgba(243,139,168,1) 80%, rgba(243,139,168,1) 95%, rgba(205,214,244,1) 95%);
-     */
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #cpu {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
+	padding: 10px 5px 10px 5px;
+	margin-bottom: 10px;
     border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #A2AEF9;
-}
-
-#memory {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #81A1C1;
-}
-
-#temperature {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #B48EAD;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-
-#battery {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-#battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#tray {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
