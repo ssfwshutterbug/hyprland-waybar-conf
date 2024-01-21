@@ -4,7 +4,17 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: CaskaydiaCove Nerd Font,FontAwesome;
     font-size: 12px;
-    min-height: 20px;
+    min-height: 18px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
 }
 
 window#waybar {
@@ -16,126 +26,101 @@ window#waybar.hidden {
 }
 
 #workspaces {
-    margin-right: 5px;
-    border-radius: 10px;
+	margin: 0px 3px 0px 3px;
+	padding: 0px 8px 0px 8px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    background: #5c719c
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #workspaces button {
+	margin: 4px 3px 4px 3px;
+	padding: 0px 0px 0px 0px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #000000;
-    background: transparent;
-    padding: 5px;
-    font-size: 12px;
-}
-
-#workspaces button.persistent {
-    color: #7c818c;
-    font-size: 12px;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-radius: inherit;
-    color: #383c4a;
-    background: #CCFF66;
+    background-color: rgba(142, 142, 142, 0.8);
+	border: 1px solid #8e8e8e;
 }
 
 #workspaces button.active {
-	color: #FFCC33;
-}
-#workspaces button.focused {
-    color: white;
+	margin: 4px 3px 4px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
+    transition: none;
+    background-color: rgba(104, 53, 186, 0.8);
+    /*background-color: rgba(176, 219, 89, 0.8);*/
+	border: 1px solid #6835ba;
 }
 
 #window {
-    margin-left: 8px;
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
+	margin: 0px 3px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #ffffff;
-    background: #81A1C1;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #keyboard-state {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #000000;
-    background: #383c4a;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #clock {
-    padding-left: 16px;
-    padding-right: 16px;
+	margin: 0px 3px 0px 0px;
+	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #000000;
-    background: #383c4a;
-    background: linear-gradient(118deg, rgba(205,214,244,1) 5%, rgba(138,177,242,1) 5%, rgba(138,177,242,1) 20%, rgba(205,214,244,1) 20%, rgba(205,214,244,1) 40%, rgba(138,177,242,1) 40%, rgba(138,177,242,1) 60%, rgba(205,214,244,1) 60%, rgba(205,214,244,1) 80%, rgba(138,177,242,1) 80%, rgba(138,177,242,1) 95%, rgba(205,214,244,1) 95%);
-    /*background: linear-gradient(118deg, rgba(137,180,250,120) 0%, rgba(142,179,250,120) 6%, rgba(148,226,213,1) 14%, rgba(147,178,250,1) 14%, rgba(155,176,249,1) 18%, rgba(245,194,231,1) 28%, rgba(158,175,249,1) 28%, rgba(181,170,248,1) 58%, rgba(205,214,244,1) 69%, rgba(186,169,248,1) 69%, rgba(195,167,247,1) 72%, rgba(137,220,235,1) 73%, rgba(198,167,247,1) 78%, rgba(203,166,247,1) 100%);
-     */
-}
-
-#custom-weather {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px 10px 10px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #669999;
-    /*background: linear-gradient(118deg, rgba(137,180,250,120) 0%, rgba(142,179,250,120) 6%, rgba(148,226,213,1) 14%, rgba(147,178,250,1) 14%, rgba(155,176,249,1) 18%, rgba(245,194,231,1) 28%, rgba(158,175,249,1) 28%, rgba(181,170,248,1) 58%, rgba(205,214,244,1) 69%, rgba(186,169,248,1) 69%, rgba(195,167,247,1) 72%, rgba(137,220,235,1) 73%, rgba(198,167,247,1) 78%, rgba(203,166,247,1) 100%);
-     */
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #custom-volume {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
+	margin: 0px 3px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #ffffff;
-    background: #9a9c89;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #network {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
+	margin: 0px 3px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #ffffff;
-    background: #B28DAC;
-    /*background: linear-gradient(118deg, rgba(205,214,244,1) 5%, rgba(243,139,168,1) 5%, rgba(243,139,168,1) 20%, rgba(205,214,244,1) 20%, rgba(205,214,244,1) 40%, rgba(243,139,168,1) 40%, rgba(243,139,168,1) 60%, rgba(205,214,244,1) 60%, rgba(205,214,244,1) 80%, rgba(243,139,168,1) 80%, rgba(243,139,168,1) 95%, rgba(205,214,244,1) 95%);
-     */
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #cpu {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
+	margin: 0px 3px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #ffffff;
-    background: #A2AEF9;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #memory {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
+	margin: 0px 3px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #ffffff;
-    background: #81A1C1;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #temperature {
@@ -153,13 +138,12 @@ window#waybar.hidden {
 }
 
 #battery {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #ffffff;
-    background: #383c4a;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 #battery.charging {
@@ -182,13 +166,24 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
-#tray {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
+#custom-weather {
+	margin: 0px 3px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #ffffff;
-    background: #383c4a;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
+}
+
+#tray {
+	margin: 0px 5px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
+    transition: none;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
 }
 
 @keyframes blink {
