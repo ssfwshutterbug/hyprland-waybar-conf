@@ -5,7 +5,8 @@
     // "height": 30, // Waybar height (to be removed for auto height)
     "width": 55, // Waybar width
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["cpu",  "custom/volume", "clock"],
+    //"modules-center": ["tray"],
+    "modules-right": ["network", "cpu",  "custom/volume", "clock", "tray"],
 
 
     //***************************
@@ -39,6 +40,30 @@
 
     "cpu": {
         "interval": 1,
-        "format": "{usage}%",
+        "format": "{icon0}",
+        "format-icons": [
+            "<span color='#69ff94'>▁</span>", // green
+            "<span color='#2aa9ff'>▂</span>", // blue
+            "<span color='#f8f8f2'>▃</span>", // white
+            "<span color='#f8f8f2'>▄</span>", // white
+            "<span color='#ffffa5'>▅</span>", // yellow
+            "<span color='#ffffa5'>▆</span>", // yellow
+            "<span color='#ff9977'>▇</span>", // orange
+            "<span color='#dd532e'>█</span>"  // red
+        ]
+    },
+
+    "network": {
+        "interface": "enp7s0",
+        "format-ethernet": "{bandwidthDownBytes}",
+        "format-disconnected": "", //An empty format will hide the module.
+        "max-length": 50,
+        "rotate": 90,
+        "interval": 1,
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
     },
 }

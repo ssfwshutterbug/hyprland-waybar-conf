@@ -60,3 +60,21 @@ window#waybar.hidden {
     background-color: rgba(48, 42, 58, 0.8);
 	border: 1px solid #572d9b;
 }
+
+#network {
+	padding: 10px 5px 10px 5px;
+	margin-bottom: 10px;
+    border-radius: 10px;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
+}
+
+#tray {
+	padding: 10px 5px 10px 5px;
+	margin-top: 10px;
+    border-radius: 10px;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
+}
