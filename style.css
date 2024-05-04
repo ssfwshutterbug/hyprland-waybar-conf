@@ -46,7 +46,7 @@ window#waybar.hidden {
 
 #workspaces button.active {
 	margin: 4px 3px 4px 3px;
-	padding: 0px 16px 0px 16px;
+	padding: 0px 0px 0px 0px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
     background-color: rgba(104, 53, 186, 0.8);
