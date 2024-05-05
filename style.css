@@ -74,9 +74,19 @@ window#waybar.hidden {
 }
 
 #clock {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 0px 0px 10px;
+    transition: none;
+    color: #cccccc;
+    background-color: rgba(48, 42, 58, 0.8);
+	border: 1px solid #572d9b;
+}
+
+#custom-weather {
 	margin: 0px 3px 0px 0px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 0px 10px 10px 0px;
     transition: none;
     color: #cccccc;
     background-color: rgba(48, 42, 58, 0.8);
@@ -164,16 +174,6 @@ window#waybar.hidden {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-#custom-weather {
-	margin: 0px 3px 0px 3px;
-	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
-    transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
 }
 
 #custom-gpu {

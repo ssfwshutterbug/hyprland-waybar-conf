@@ -4,8 +4,8 @@
     "margin": "5 5 7 5",
     "height": 22, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-left": ["hyprland/workspaces", "custom/weather",  "hyprland/window"],
-    "modules-center": ["clock"],
+    "modules-left": ["hyprland/workspaces",  "hyprland/window"],
+    "modules-center": ["clock", "custom/weather"],
     "modules-right": ["network", "cpu", "temperature", "custom/gpu", "memory", "custom/volume",  "tray"],
 
 
