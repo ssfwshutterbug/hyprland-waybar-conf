@@ -1,3 +1,14 @@
+@import 'colors-waybar.css';
+@define-color frame-color @color1;
+@define-color active-button-color @color2;
+@define-color background-color alpha(@background, 0.6);
+@define-color font-color @foreground;
+@define-color button-color @color3;
+@define-color active-button-color @color1;
+/*@define-color frame-color rgba(104, 53, 186, 0.8);
+@define-color active-button-color #8db600;
+ */
+
 * {
     border: none;
     border-radius: 0;
@@ -25,14 +36,26 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#window {
+	margin: 0px 3px 0px 3px;
+	padding: 0px 16px 0px 16px;
+    border-radius: 10px 10px 10px 10px;
+    transition: none;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+    background-color: @background-color;
+	border: 1px solid @frame-color;
+}
+
 #workspaces {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 8px 0px 8px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #workspaces button {
@@ -40,8 +63,10 @@ window#waybar.hidden {
 	padding: 0px 0px 0px 0px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    background-color: rgba(142, 142, 142, 0.8);
-	border: 1px solid #8e8e8e;
+    color: @font-color;
+    /*background-color: rgba(142, 142, 142, 0.8);*/
+    background-color: @button-color;
+	border: 1px solid @button-color;
 }
 
 #workspaces button.active {
@@ -49,28 +74,21 @@ window#waybar.hidden {
 	padding: 0px 0px 0px 0px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    background-color: rgba(104, 53, 186, 0.8);
+    /*background-color: rgba(104, 53, 186, 0.8);*/
+    background-color: @active-button-color;
     /*background-color: rgba(176, 219, 89, 0.8);*/
-	border: 1px solid #6835ba;
-}
-
-#window {
-	margin: 0px 3px 0px 3px;
-	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
-    transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+	/*border: 1px solid #6835ba;*/
+	border: 1px solid @active-button-color;
 }
 
 #keyboard-state {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #clock {
@@ -78,9 +96,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 0px 0px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #custom-weather {
@@ -88,9 +107,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 0px 10px 10px 0px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #custom-volume {
@@ -98,9 +118,32 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
+}
+
+#custom-saveImg {
+	margin: 0px 0px 0px 3px;
+	padding: 0px 6px 0px 10px;
+    border-radius: 10px 0px 0px 10px;
+    transition: none;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
+}
+
+#custom-nextImg {
+	margin: 0px 3px 0px 0px;
+	padding: 0px 16px 0px 0px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #network {
@@ -108,9 +151,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #cpu {
@@ -118,9 +162,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #memory {
@@ -128,9 +173,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #temperature {
@@ -138,9 +184,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #temperature.critical {
@@ -151,9 +198,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #battery.charging {
@@ -181,9 +229,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 #tray {
@@ -191,9 +240,10 @@ window#waybar.hidden {
 	padding: 0px 16px 0px 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    color: #cccccc;
-    background-color: rgba(48, 42, 58, 0.8);
-	border: 1px solid #572d9b;
+    color: @font-color;
+    /*background-color: rgba(48, 42, 58, 0.8);*/
+	background-color: @background-color;
+	border: 1px solid @frame-color;
 }
 
 @keyframes blink {
