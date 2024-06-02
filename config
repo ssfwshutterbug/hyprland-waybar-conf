@@ -95,8 +95,8 @@
     },
 
     "network": {
-        "interface": "enp7s0",
-        "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} 󰊗",
+        "interface": "eth0",
+        "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes}",
         "format-disconnected": "", //An empty format will hide the module.
         "interval": 1
     },
