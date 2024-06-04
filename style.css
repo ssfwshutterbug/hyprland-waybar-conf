@@ -75,7 +75,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-	margin: 4px 3px 4px 3px;
+	margin: 2px 3px 2px 3px;
 	padding: 0px 0px 0px 0px;
     /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
