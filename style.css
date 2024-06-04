@@ -5,6 +5,7 @@
 @define-color font-color @foreground;
 @define-color button-color @color3;
 @define-color active-button-color @color1;
+
 /*@define-color frame-color rgba(104, 53, 186, 0.8);
 @define-color active-button-color #8db600;
  */
