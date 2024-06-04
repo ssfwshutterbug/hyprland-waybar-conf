@@ -1,5 +1,6 @@
 @import 'colors-waybar.css';
-@define-color frame-color @color1;
+/*@define-color frame-color @color1;*/
+@define-color frame-color transparent;
 @define-color active-button-color @color2;
 @define-color background-color alpha(@background, 0.6);
 @define-color font-color @foreground;
@@ -30,7 +31,8 @@
 }
 
 window#waybar {
-    background: transparent;
+    /*background: transparent;*/
+    background: @background-color;
 }
 
 window#waybar.hidden {
@@ -40,7 +42,7 @@ window#waybar.hidden {
 #window {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -49,9 +51,11 @@ window#waybar.hidden {
 }
 
 #workspaces {
+	/*margin: 0px 3px 0px 3px;*/
 	margin: 0px 3px 0px 3px;
-	padding: 0px 8px 0px 8px;
-    border-radius: 10px 10px 10px 10px;
+	/*padding: 0px 8px 0px 8px;*/
+	padding: 0px 8px 0px 0px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -62,7 +66,7 @@ window#waybar.hidden {
 #workspaces button {
 	margin: 4px 3px 4px 3px;
 	padding: 0px 0px 0px 0px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(142, 142, 142, 0.8);*/
@@ -73,7 +77,7 @@ window#waybar.hidden {
 #workspaces button.active {
 	margin: 4px 3px 4px 3px;
 	padding: 0px 0px 0px 0px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     /*background-color: rgba(104, 53, 186, 0.8);*/
     background-color: @active-button-color;
@@ -84,7 +88,7 @@ window#waybar.hidden {
 
 #keyboard-state {
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -95,7 +99,7 @@ window#waybar.hidden {
 #clock {
 	margin: 0px 0px 0px 0px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 0px 0px 10px;
+    /*border-radius: 10px 0px 0px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -106,7 +110,7 @@ window#waybar.hidden {
 #custom-weather {
 	margin: 0px 3px 0px 0px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 0px 10px 10px 0px;
+    /*border-radius: 0px 10px 10px 0px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -117,7 +121,7 @@ window#waybar.hidden {
 #custom-volume {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -128,7 +132,7 @@ window#waybar.hidden {
 #custom-saveImg {
 	margin: 0px 0px 0px 3px;
 	padding: 0px 6px 0px 10px;
-    border-radius: 10px 0px 0px 10px;
+    /*border-radius: 10px 0px 0px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -139,7 +143,7 @@ window#waybar.hidden {
 #custom-nextImg {
 	margin: 0px 3px 0px 0px;
 	padding: 0px 16px 0px 0px;
-    border-radius: 0px 10px 10px 0px;
+    /*border-radius: 0px 10px 10px 0px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -150,7 +154,7 @@ window#waybar.hidden {
 #network {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -161,7 +165,7 @@ window#waybar.hidden {
 #cpu {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -172,7 +176,7 @@ window#waybar.hidden {
 #memory {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -183,7 +187,7 @@ window#waybar.hidden {
 #temperature {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -197,7 +201,7 @@ window#waybar.hidden {
 
 #battery {
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -228,7 +232,7 @@ window#waybar.hidden {
 #custom-gpu {
 	margin: 0px 3px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
@@ -237,9 +241,10 @@ window#waybar.hidden {
 }
 
 #tray {
-	margin: 0px 3px 0px 3px;
+	/*margin: 0px 3px 0px 3px;*/
+	margin: 0px 0px 0px 3px;
 	padding: 0px 16px 0px 16px;
-    border-radius: 10px 10px 10px 10px;
+    /*border-radius: 10px 10px 10px 10px;*/
     transition: none;
     color: @font-color;
     /*background-color: rgba(48, 42, 58, 0.8);*/
