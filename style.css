@@ -15,8 +15,9 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: CaskaydiaCove Nerd Font,FontAwesome;
-    font-size: 14px;
+    /*font-family: CaskaydiaCove Nerd Font,FontAwesome;*/
+    font-family: Cartograph CF Bold Italic;
+    font-size: 15px;
     min-height: 18px;
 }
 
