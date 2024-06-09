@@ -6,7 +6,7 @@
     "margin": "0 0 0 0",
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-left": ["hyprland/workspaces",  "hyprland/window"],
+    "modules-left": ["sway/workspaces",  "sway/window"],
     "modules-center": ["clock", "custom/weather"],
     "modules-right": ["network", "cpu", "temperature", "custom/gpu", "memory", "custom/volume",  "custom/saveImg", "custom/nextImg", "tray"],
 
@@ -15,7 +15,7 @@
     //*  Modules configuration  *
     //***************************
 
-//    "hyprland/workspaces": {
+//    "sway/workspaces": {
 //        "format": "{icon}",
 //        "on-click": "activate",
 //        "format-icons": {
@@ -31,7 +31,7 @@
 //        "sort-by-number": true
 //    },
 
-    "hyprland/workspaces": {
+    "sway/workspaces": {
         "format": "{name}",
             "on-click": "activate",
             "persistent-workspaces": {
@@ -48,7 +48,7 @@
             "sort-by-number": true
     },
 
-    "hyprland/window": {
+    "sway/window": {
         "format": "👉 {title}",
         "rewrite": {
             "(.*) — Mozilla Firefox": "🌎 $1"
