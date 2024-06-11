@@ -1,0 +1,71 @@
+#!/bin/sh
+
+# read monitor info for regex match, without it the match may not correct
+MONITOR=$1
+# dwl output file
+OUTPUT="/tmp/dwl_waybar.info"
+# dwl will update information with 7 lines
+LAST_LINE=7
+
+# color style
+# use pywal kitty color
+KITTY="$HOME/.cache/wal/colors-kitty.conf"
+ACTIVE_BG="$(rg -w color1 $KITTY | choose 1)"
+DEACTIVE_BG="$(rg -w color2 $KITTY | choose 1)"
+TEXT_FG="#ffffff"
+
+# if do not neet so many workspace, need to change the two.
+ORIGION_WS="1 2 4 8 16 32 64 128 256"
+REAL_WS="1 2 3 4 5 6 7 8 9"
+
+# match the real workspace id
+actual_tag() {
+    current_ws=$1
+    j=0
+    for i in $ORIGION_WS; do
+        if [ "$(echo $ORIGION_WS | choose $j)" = "$current_ws" ]; then
+            current_ws=$(expr $j + 1)
+            break
+        else
+            j=$(expr $j + 1)
+        fi
+    done
+    echo $current_ws
+}
+
+mix_color() {
+    current_ws=$1
+    layout=$2
+    title=$3
+
+    for i in $REAL_WS; do
+        if [ "$i" != "$current_ws" ]; then
+            ws="<span font-size='12000' background='${DEACTIVE_BG}'> $i </span>"
+        else
+            ws="<span font-size='15000' background='${ACTIVE_BG}'> $current_ws </span>"
+        fi
+
+        workspace="$workspace $ws"
+    done
+
+    layout="<span font-size='13000' foreground='${TEXT_FG}'> $layout </span>"
+    title="<span font-size='13000' foreground='${TEXT_FG}'> $title </span>"
+
+    echo -n "$workspace $layout $title"
+}
+
+while true; do
+    content=$(tail -n ${LAST_LINE} ${OUTPUT})
+
+    current_ws=$(echo "$content" | rg "${MONITOR} tags" | choose 3)
+    current_ws=$(actual_tag $current_ws)
+
+    layout=$(echo "$content" | rg "${MONITOR} layout" | choose 2:)
+    title=$(echo "$content" | rg "${MONITOR} title" | choose 2:)
+
+    dwl_info=$(mix_color "$current_ws" "$layout" "$title")
+    printf -- '{"text":"%s"}\n' "$dwl_info"
+
+    # wait until file been moditied
+    inotifywait -t 60 -qq --event modify "${OUTPUT}" "${KITTY}"
+done

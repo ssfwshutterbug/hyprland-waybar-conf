@@ -6,7 +6,7 @@
     "margin": "0 0 0 0",
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-left": ["custom/dwl_workspaces",  "hyprland/window"],
+    "modules-left": ["custom/dwl_workspaces"],
     "modules-center": ["clock", "custom/weather"],
     "modules-right": ["network", "cpu", "temperature", "custom/gpu", "memory", "custom/volume",  "custom/saveImg", "custom/nextImg", "tray"],
 
@@ -16,41 +16,11 @@
     //***************************
 
       "custom/dwl_workspaces": {
-        "exec": "~/.config/waybar/scripts/waybar-dwl.sh",
-      //  "interval": 1,
+        "exec": "$HOME/.config/waybar/scripts/waybar_dwl",
+        //"interval": 1,
         "return-type": "json",
         "format": "{}",
-//        "format": "{name}",
-//        "format-icons": {
-//          "focused": " {name}",
-//          "default": " {name}"
-//        },
       },
-
-//    "hyprland/workspaces": {
-//        "format": "{name}",
-//            "on-click": "activate",
-//            "persistent-workspaces": {
-//                "1": "1",
-//                "2": "2",
-//                "3": "3",
-//                "4": "4",
-//                "5": "5",
-//                "6": "6",
-//                "7": "7",
-//                "8": "8",
-//                "9": "9",
-//            },
-//            "sort-by-number": true
-//    },
-//
-    "hyprland/window": {
-        "format": "👉 {title}",
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "🌎 $1"
-        },
-        "separate-outputs": true
-    },
 
     "clock": {
         // "timezone": "America/New_York",
@@ -62,7 +32,7 @@
         "format": "{}",
         "tooltip": false,
         "interval": 1800,
-        "exec": "$HOME/.config/waybar/scripts/getwea.sh",
+        "exec": "$HOME/.config/waybar/scripts/getwea",
         "return-type": "newline"
     },
 
@@ -70,7 +40,7 @@
         "format": "{}",
         "tooltip": false,
         "interval": 60,
-        "exec": "$HOME/.config/waybar/scripts/getgpufan.sh",
+        "exec": "$HOME/.config/waybar/scripts/getgpufan",
         "return-type": "newline"
     },
 
@@ -83,12 +53,12 @@
 
     "custom/saveImg": {
         "format": "{} ",
-        "on-click": "$HOME/.config/waybar/scripts/download_wall.sh",
+        "on-click": "$HOME/.config/waybar/scripts/download_wall",
     },
 
     "custom/nextImg": {
         "format": "{} ",
-        "on-click": "$HOME/.config/waybar/scripts/change_wall.sh",
+        "on-click": "$HOME/.config/waybar/scripts/change_wall",
     },
 
     "network": {
