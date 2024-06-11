@@ -1,19 +1,25 @@
 #!/bin/sh
 
-# read monitor info for regex match, without it the match may not correct
-MONITOR=$1
+# the script used for waybar to work with dwl no ipc patch needed(display workspace id, layout, and focus
+# window title). i rewrite from the existed one: https://codeberg.org/fauxmight/waybar-dwl/src/branch/main/waybar-dwl.sh
+# mainly because i want the workspace display style matchs the one i used in hyprland. BTW, hyprland
+# version 0.40 has some bugs, always kill foot server, so i changed to dwl, and so far so good.
+
 # dwl output file
 OUTPUT="/tmp/dwl_waybar.info"
-# dwl will update information with 7 lines
+# read monitor info for regex match, without it the match may not correct
+MONITOR=${1-"DP-1"}
+# dwl will update information with 7 lines each time
 LAST_LINE=7
+# title length
+TITEL_LEN=30
 
-# color style
-# use pywal's kitty color
-KITTY="$HOME/.cache/wal/colors-kitty.conf"
-#TEXT_FG="#ffffff"
-ACTIVE_TEXT="#ae2012"
+# use pywal produced kitty color, so the color can automaticly change when the wallpaper changes
+KITTY_THEME="$HOME/.cache/wal/colors-kitty.conf"
+ACTIVE_FG="#ffffff"
+LAYOUT_FG="#ae2012"
 
-# if do not neet so many workspace, need to change the two.
+# if do not neet so many workspaces, need to change both, cause they are high binded
 ORIGION_WS="1 2 4 8 16 32 64 128 256"
 REAL_WS="1 2 3 4 5 6 7 8 9"
 
@@ -32,6 +38,7 @@ actual_tag() {
     echo $current_ws
 }
 
+# add color style
 mix_color() {
     current_ws=$1
     layout=$2
@@ -39,16 +46,16 @@ mix_color() {
 
     for i in $REAL_WS; do
         if [ "$i" != "$current_ws" ]; then
-            ws="<span font-size='12000' background='${DEACTIVE_BG}'> $i </span>"
+            ws="<span font-size='12000' foreground='${TEXT_FG}' background='${DEACTIVE_BG}'> $i </span>"
         else
-            #ws="<span font-size='15000' foreground='${TEXT_FG}' background='${ACTIVE_BG}'> $current_ws </span>"
-            ws="<span font-size='15000' background='${ACTIVE_BG}'> $current_ws </span>"
+            ws="<span font-size='15000' foreground='${ACTIVE_FG}' background='${ACTIVE_BG}'> $current_ws </span>"
+            #ws="<span font-size='15000' background='${ACTIVE_BG}'> $current_ws </span>"
         fi
 
         workspace="$workspace $ws"
     done
 
-    layout="<span font-size='13000' foreground='${TEXT_FG}'> $layout </span>"
+    layout="<span font-size='13000' foreground='${LAYOUT_FG}'> $layout </span>"
     title="<span font-size='13000' foreground='${TEXT_FG}'> $title </span>"
 
     echo -n "$workspace $layout $title"
@@ -56,21 +63,25 @@ mix_color() {
 
 while true; do
     # everytime file changed will reexecute the loop
-    ACTIVE_BG="$(rg -w color1 $KITTY | choose 1)"
-    DEACTIVE_BG="$(rg -w color2 $KITTY | choose 1)"
-    TEXT_FG="$(rg -w foreground $KITTY | choose 1)"
+    ACTIVE_BG="$(rg -w color1 $KITTY_THEME | choose 1)"
+    DEACTIVE_BG="$(rg -w color2 $KITTY_THEME | choose 1)"
+    TEXT_FG="$(rg -w foreground $KITTY_THEME | choose 1)"
 
+    # get dwl output information
     content=$(tail -n ${LAST_LINE} ${OUTPUT})
 
+    # call function to get the real workspace id
     current_ws=$(echo "$content" | rg "${MONITOR} tags" | choose 3)
     current_ws=$(actual_tag $current_ws)
 
     layout=$(echo "$content" | rg "${MONITOR} layout" | choose 2:)
-    title=$(echo "$content" | rg "${MONITOR} title" | choose 2: | tr -d '&!/')
+    # set title max length and remove some special characters
+    title=$(echo "$content" | rg "${MONITOR} title" | choose 2: | choose -c 0:$TITEL_LEN | tr -d '&!/')
 
+    # call function to add color and output to waybar
     dwl_info=$(mix_color "$current_ws" "$layout" "$title")
     printf -- '{"text":"%s"}\n' "$dwl_info"
 
-    # wait until file been moditied
-    inotifywait -t 60 -qq --event modify "${KITTY}" "${OUTPUT}"
+    # wait until file bing moditied
+    inotifywait -t 60 -qq --event modify "${KITTY_THEME}" "${OUTPUT}"
 done
