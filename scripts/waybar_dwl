@@ -74,7 +74,8 @@ while true; do
     current_ws=$(echo "$content" | rg "${MONITOR} tags" | choose 3)
     current_ws=$(actual_tag $current_ws)
 
-    layout=$(echo "$content" | rg "${MONITOR} layout" | choose 2:)
+    # need to change '<' '>' character to something others
+    layout=$(echo "$content" | rg "${MONITOR} layout" | choose 2: | sed -e 's/</(/g' -e 's/>/\)/g')
     # set title max length and remove some special characters
     title=$(echo "$content" | rg "${MONITOR} title" | choose 2: | choose -c 0:$TITEL_LEN | tr -d '&!/')
 
